@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+        nav {
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            text-align: right;
+            padding: 0 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-left: 50px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        .menu-icon {
+            display: none;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            color: #fff;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .section-content {
+            max-width: 800px;
+        }
+        h1 {
+            font-size: 25px;
+            margin: 0;
+            margin-top: 200px;
+            margin-left: 50px;
+            font-weight: 100;
+        }
+        h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 50px;
+            margin: 1px;
+            margin-left: 50px;
+            font-weight: bolder;
+        }
+        h3 {
+            margin-left: 100px;
+        }
+        h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            margin: 0.5rem 0;
+        }
+        p {
+            margin: -1rem;
+            margin-left: 50px;
+            font-size: 45px;
+            font-weight: 70;
+        }
+        .sectionp {
+            font-size: 15px;
+            font-weight: lighter;
+            margin-left: 50px;
+        }
+        .contact-form {
+            background: #fff;
+            color: #000;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+            margin: auto;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .contact-form input[type="submit"] {
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+            padding: 0.75rem;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #333;
+        }
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 2rem;
+                margin-top: 150px;
+            }
+            h2 {
+                font-size: 40px;
+            }
+            .sectionp {
+                font-size: 12px;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links a {
+                padding: 1rem;
+                margin: 0;
+                border-bottom: 1px solid #444;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .section {
+                padding: 0 10px;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-top: 120px;
+            }
+            h2 {
+                font-size: 30px;
+            }
+            p {
+                font-size: 30px;
+            }
+            .sectionp {
+                font-size: 10px;
+            }
+            .contact-form {
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            nav a {
+                margin: 0.25rem;
+                font-size: 0.9rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-top: 100px;
+                margin-left: 20px;
+            }
+            h2 {
+                font-size: 25px;
+                margin-left: 20px;
+            }
+            p {
+                font-size: 20px;
+                margin-left: 20px;
+            }
+            .sectionp {
+                font-size: 8px;
+                margin-left: 20px;
+            }
+            .contact-form {
+                padding: 0.5rem;
+            }
+        }
+        .inner-rectangle {
+            width: 25%;
+            height: 50%;
+            border: 1px solid #333;
+            position: absolute;
+            background-color: #000;
+            top: 300px;
+        }
+        .inner-rectangle1,
+        .inner-rectanglee,
+        .inner-rectangleee {
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .inner-rectangle1:hover,
+        .inner-rectanglee:hover,
+        .inner-rectangleee:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .sectionb,
+        .sectionbb,
+        .sectionbbb,
+        .sectionbutton {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            width: 120px;
+            height: 40px;
+            background-color: #4d4d44;
+            border-radius: 2px;
+            border-style: hidden;
+            color: white;
+            margin-left: 50px;
+            font-weight: lighter;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .sectionb:hover,
+        .sectionbb:hover,
+        .sectionbbb:hover,
+        .sectionbut:hover,
+        .sectionbutton:hover {
+            background-color: #333;
+        }
+        .sectionA {
+            font-size: 100px;
+            margin-left: 600px;
+            margin-top: 70px;
+        }
+        .sectionD {
+            font-size: 15px;
+            margin-left: 520px;
+            margin-top: 20px;
+            font-family: 'poppins', sans-serif;
+            font-weight: lighter;
+        }
+        .sectionblack {
+            background-color: #000;
+        }
+        .sectioncon {
+            margin-left: 10px;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            width: 100%;
+        }
+        .sectionpre {
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            margin-top: 10px;
+            z-index: 4;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        .sectioning {
+            width: 100px;
+            height: 200px;
+        }
+        .sectionbut {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            width: 120px;
+            height: 40px;
+            background-color: #4d4d44;
+            border-radius: 2px;
+            border-style: hidden;
+            color: white;
+            margin-left: 580px;
+            font-weight: lighter;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="sectionblack">
+    <nav>
+        <div class="logo">KENXX</div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#Projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    
+    <div class="section hero" id="home">
+        <img src="a.jpg" alt="Hero Image">
+        <div class="section-content">
+            <h1>Hi, There!</h1>
+            <h2>I'm KEN FORD</h2>
+            <p>A FULL STACK DEVELOPER</p>
+            <p>& EVENT DESIGNER</p>
+            <h6 class="sectionp">I am here to help you build your future</h6>
+            <button class="sectionb">View More</button>
+        </div>
+    </div>
+    
+    <div class="section about" id="about">
+        <img src="b.jpg" alt="About Image">
+        <div class="section-content">
+            <div class="sectionA">KENFORD</div>
+            <pre class="sectionD">
+                A Bit About Me
+                Meet Ken Ford, a skilled web developer and designer merging creativity with
+                technical expertise. With 4 years in the field, they excel in crafting visually 
+                stunning websites and seamless user experiences. Proficient in HTML, CSS,
+                JavaScript, and more, Ken Ford brings ideas to life with precision and flair.
+                Always staying ahead of industry trends, they are dedicated to delivering 
+                innovative solutions that engage and captivate users. In summary, Ken Ford
+                is a visionary creator shaping the digital landscape one pixel at a time.
+            </pre>
+            <button class="sectionbut">Read More...</button>
+        </div>
+    </div>
+    
+    <div class="section project" id="Projects">
+        <img src="E.jpg" alt="Project Image">
+        
+        <!-- Project 1 -->
+        <div class="inner-rectangle inner-rectangle1" style="left: 50px;">
+            <img src="cater.jpg" alt="Project 1" class="sectionimg">
+           
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="inner-rectangle inner-rectanglee" style="left: 527px;">
+            <img src="cal.jpg" alt="Project 2" class="sectionimg">
+            
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="inner-rectangle inner-rectangleee" style="right: 50px;">
+            <img src="ipt.jpg" alt="Project 3" class="sectionimg">
+           
+        </div>
+        
+        <div class="section-content">
+            <h3>PROJECTS</h3>
+        </div>
+    </div>
+    
+    <div class="section contact" id="contact">
+        <div class="section-content contact-form">
+            <h3 class="sectioncon">Contact Me</h3>
+            <form action="submit_form.php" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Ken Ford. All Rights Reserved.
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>
